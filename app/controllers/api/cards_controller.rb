@@ -22,6 +22,11 @@ module Api
       end
     end
 
+    def show
+      @card = Card.find(params[:id])
+      render :show
+    end
+
     private
 
     def current_list
