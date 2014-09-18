@@ -51,7 +51,8 @@ content.
   * Remember to display the lists in order of their rank. You might want to 
 overwrite the `comparator` method of the `lists` collection.
 * When the user creates a board, it should redirect them to the board's show 
-page. You can use the router's `navigate` method for this.
+page. You can use `Backbone.history.navigate()` or the router's `navigate` method
+for this.
 * Add the ability to create lists, via a new list view.
 * Add a button to delete the board.
 
@@ -65,12 +66,13 @@ give the CSS setting `float: left`.
 * Add the ability to create and delete cards for each list. *TODO: elaborate on 
 how to do this in Backbone.* The card deletion should be accomplished by a 
 button for each card which only appears when you're hovering over the card. Use 
-the JQuery hover event to get this effect.
+CSS `:hover` or the jQuery hover event to get this effect.
 
 ### Phase IV: Javascript prettiness!
 
 * The whole fun of Trello is the dragging and dropping of the to-do items and 
-lists. We'll be using jQuery UI Sortable to accomplish this. 
+lists. We'll be using [jQuery UI Sortable][jui_sortable]
+([examples][jui_sortable_exs]) to accomplish this. 
 [Read this example here](http://stackoverflow.com/a/15635201).
 * First get that working on the client, and then send the result back to the 
 server.
@@ -95,6 +97,9 @@ anyway.
 [this tutorial](http://www.jacklmoore.com/notes/jquery-modal-tutorial/).
   * Add the ability to add board members. You should be able to type in a email 
 and the website will add that person, or complain that they don't exist.
+
+[jui_sortable]: https://api.jqueryui.com/sortable/
+[jui_sortable_exs]: http://jqueryui.com/sortable/
 
 ### Phase V: Card modal view
 
