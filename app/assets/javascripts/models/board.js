@@ -3,7 +3,6 @@ TrelloClone.Models.Board = Backbone.Model.extend({
 	
 	
 	lists: function () {
-
 		if (this._lists){
 			return this._lists;
 		} else {

@@ -1,10 +1,11 @@
 <h2>Boards</h2>
 
-<ul>
-    
+<div class="list-group">
+	  
 	<% boards.forEach(function (board){ %>
 	
-	<li><a href="#/boards/<%= board.escape("id") %>"><%= board.escape("title") %></a></li>  
+	<a href="#/boards/<%= board.escape("id") %>" class="list-group-item">
+		<%= board.escape("title") %></a>  
 	<% }) %> 
 
-</ul> 
+</div>

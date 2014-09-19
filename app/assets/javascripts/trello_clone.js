@@ -11,10 +11,6 @@ window.TrelloClone = {
 			"$rootEl": $("div#main")
 		});
 		Backbone.history.start();
-		
-
-	
 	}
 };
-
 

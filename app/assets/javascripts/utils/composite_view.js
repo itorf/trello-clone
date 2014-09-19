@@ -1,18 +1,20 @@
+
 Backbone.CompositeView = Backbone.View.extend({
   addSubview: function (selector, subview) {
     this.subviews(selector).push(subview);
     // Try to attach the subview. Render it as a convenience.
-    this.attachSubview(selector, subview.render());
+    this.attachSubview(selector, subview);
   },
 
   attachSubview: function (selector, subview) {
-    this.$(selector).append(subview.$el);
+    this.$(selector).append(subview.render().$el);
     // Bind events in case `subview` has previously been removed from
     // DOM.
     subview.delegateEvents();
   },
 
   attachSubviews: function () {
+
     // I decided I didn't want a function that renders ALL the
     // subviews together. Instead, I think:
     //
@@ -63,3 +65,60 @@ Backbone.CompositeView = Backbone.View.extend({
     }
   }
 });
+
+// Backbone.CompositeView = Backbone.View.extend({
+//
+// 	addSubView: function (selector, subview){
+// 		this.subviews(selector).push(subview);
+//
+// 		this.attachSubview(selector, subview.render());
+//
+// 	},
+//
+// 	attachSubview: function (selector, subview){
+// 		this.$(selector).append(subview.$el);
+// 		subview.delegateEvents();
+// 	},
+//
+// 	attachSubViews: function (){
+// 		var that = this;
+//
+// 		debugger
+// 		_(this.subviews()).each(function (subviews, selector){
+// 			that.$(selector).empty();
+// 			_(subviews).each(function (subview){
+// 				that.attachSubview(selector, subview);
+// 			});
+// 		});
+// 	},
+//
+// 	remove: function () {
+// 		Backbone.View.prototype.remove.call(this);
+//
+// 		_(this.subviews()).each(function (subviews){
+// 			_(subviews).each(function (subview){
+// 				subview.remove();
+// 			})
+// 		})
+// 	},
+//
+// 	removeSubview: function (selector, subview){
+// 		subview.remove();
+//
+// 		var subviews = this.subviews(selector);
+// 		subviews.splice(subviews.indexOf(subview), 1);
+// 	},
+//
+//
+// 	subviews: function (selector) {
+//
+// 		this._subviews = this._subviews || {};
+//
+// 		if(selector){
+// 			this._subviews[selector] = this._subviews[selector] || []
+// 			return this._subviews[selector];
+// 		} else {
+// 			return this._subviews;
+// 		}
+// 	}
+// });
