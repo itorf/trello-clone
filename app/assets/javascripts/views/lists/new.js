@@ -23,8 +23,6 @@ TrelloClone.Views.ListNew = Backbone.View.extend({
 		
 		var newList = new TrelloClone.Models.List(params);
 		
-		debugger
-		
 		newList.save({}, {
 			success: function () {
 				that.model.lists().add(newList);

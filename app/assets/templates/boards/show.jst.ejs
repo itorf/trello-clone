@@ -1,17 +1,26 @@
-<h1><%= board.escape("title") %></h1>
 
-<button id="delete_board">Delete Board</button>
+<div class="row">
+	<div class=""></div>
+	
 
-
-
-<h3>Lists for <%= board.escape("title") %></h3>
-<ul class="lists"></ul>
-
-<div class="new_list"></div>
-
-<a href="#">All Boards</a>
+	<div class="page-header">
+		<h3><%= board.escape("title") %></h3>
+	</div>
 
 
+	<button id="delete_board" class="btn btn-default btn-sm">
+		<span class="glyphicon glyphicon-remove"></span>
+	</button>
+
+	<div class="new_list pull-right"></div>
 
 
+	<!--Add drop down  -->
 
+
+	<!--Float, Panels -->
+
+	<ul class="lists"></ul>
+
+	<a href="#">All Boards</a>
+</div>
