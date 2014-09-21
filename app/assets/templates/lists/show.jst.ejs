@@ -2,19 +2,31 @@
 <div class="panel panel-primary pull-left">
 	<div class="panel-heading">
 		<%= list.escape("title") %>
-		<button class="btn btn-primary btn-sm" id="delete_list">
+		<button class="btn btn-primary btn-xs hidden" id="delete_list">
 			<span class="glyphicon glyphicon-remove"></span>
 		</button>
 	</div>
+
+	<ul class="cards list-group"></ul>
 	
-	<ul class="cards list-group">
-		
-	</ul>
 	
 	<!-- Button trigger modal -->
-	<button class="btn btn-default btn-sm" data-toggle="modal"
-	data-target="#myModal">
+	<button class="btn btn-default btn-sm" id="new_card" data-toggle="modal"
+	data-target="#myModal<%= list.id %>">
 	  New Card
 	</button> 
-	<div class="new_card"> </div>
+
+	<div class="modal fade" id="myModal<%= list.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="new_card"></div>
 </div>
+
+<script>
+
+	$("div.panel-heading").mouseover( function (event){
+		$("button#delete_list").removeClass("hidden");
+	});
+	
+	$("div.panel-heading").mouseout( function (event){
+		$("button#delete_list").addClass("hidden");
+	});
+</script>

@@ -17,7 +17,9 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		"click button#delete_list": "deleteList"
+		"click button#delete_list": "deleteList",
+		"click button#new_card": "enableFocus",
+		"click .list-group-item": "showDescription"
 	},
 	
 	addCard: function (card){
@@ -51,6 +53,21 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
 	
 	deleteList: function (event) {
 		this.model.destroy();
+		$("button#delete_list").addClass("hidden");
+	},
+	
+	enableFocus: function () {
+		modal = '#myModal' + this.model.id;
+		
+		$(modal).on('shown.bs.modal', function (){
+			$('input#card_title').focus();
+		})
+	},
+	
+	showDescription: function (event){
+		event.preventDefault();
+		alert("description");
+		
 	}
 	
 });

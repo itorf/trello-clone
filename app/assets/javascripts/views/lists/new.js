@@ -15,6 +15,7 @@ TrelloClone.Views.ListNew = Backbone.View.extend({
 
 	handleSubmit: function (event){
 		event.preventDefault();
+
 		var that = this;
 
 		var params = $(event.currentTarget).serializeJSON();
@@ -22,6 +23,8 @@ TrelloClone.Views.ListNew = Backbone.View.extend({
 		params.list.ord = this.assignOrd();
 		
 		var newList = new TrelloClone.Models.List(params);
+		
+		$(event.currentTarget).find('input#list_title').val("");
 		
 		newList.save({}, {
 			success: function () {

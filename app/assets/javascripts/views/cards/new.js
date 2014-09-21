@@ -7,6 +7,8 @@ TrelloClone.Views.CardNew = Backbone.View.extend({
 	
 	handleSubmit: function (event) {
 		event.preventDefault();
+		$('.modal').modal('hide');
+
 		var that = this;
 
 		var params = $(event.currentTarget).serializeJSON().card;
@@ -14,6 +16,9 @@ TrelloClone.Views.CardNew = Backbone.View.extend({
 		params.ord = this.assignOrd();
 		
 		var newCard = new TrelloClone.Models.Card(params);
+		
+		$(event.currentTarget).find('input').val("");
+		$(event.currentTarget).find('textarea').val("");
 		
 		newCard.save({}, {
 			success: function () {
@@ -31,6 +36,7 @@ TrelloClone.Views.CardNew = Backbone.View.extend({
 	},
 
 	render: function (){
+		// alert(this.model.id);
 		var renderedContent = this.template({
 			card: this.model
 		})

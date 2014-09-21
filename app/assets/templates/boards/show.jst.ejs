@@ -1,26 +1,34 @@
 
 <div class="row">
-	<div class=""></div>
+	<div class="col-xs-9">
+		<div class="page-header">
+			<h3><%= board.escape("title") %>
+			<button id="delete_board" class="btn btn-default btn-xs hidden">
+				<span class="glyphicon glyphicon-remove"></span>
+			</button>
+			</h3>
+		</div>
+		
 	
-
-	<div class="page-header">
-		<h3><%= board.escape("title") %></h3>
+		
+		<ul class="lists"></ul>
 	</div>
+	
+	<div class="col-xs-3">
+		<div class="new_list"></div>
 
 
-	<button id="delete_board" class="btn btn-default btn-sm">
-		<span class="glyphicon glyphicon-remove"></span>
-	</button>
-
-	<div class="new_list pull-right"></div>
+		<!--Add drop down  -->
 
 
-	<!--Add drop down  -->
+		<!--Float, Panels -->
 
-
-	<!--Float, Panels -->
-
-	<ul class="lists"></ul>
-
-	<a href="#">All Boards</a>
+	</div>
 </div>
+
+<script>
+$("h3").hover( function (){
+	$("button#delete_board").toggleClass("hidden");
+});
+
+</script>
