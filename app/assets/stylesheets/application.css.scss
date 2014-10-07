@@ -38,5 +38,12 @@
 }
 
 .hidden {
-display: none;
+	display: none;
+}
+
+.lists .sortable {
+	min-width: 150px;
+	text-align: center;
+	min-height: 20px;
+	margin: 3px 3px 3px;
 }

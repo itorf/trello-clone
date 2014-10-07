@@ -11,7 +11,7 @@
 		
 	
 		
-		<ul class="lists"></ul>
+		<ul class="lists sortable"></ul>
 	</div>
 	
 	<div class="col-xs-3">
@@ -30,5 +30,8 @@
 $("h3").hover( function (){
 	$("button#delete_board").toggleClass("hidden");
 });
+
+$('.lists.sortable').sortable()
+$('.lists.sortable').disableSelection();
 
 </script>

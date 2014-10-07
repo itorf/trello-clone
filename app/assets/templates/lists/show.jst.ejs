@@ -7,7 +7,7 @@
 		</button>
 	</div>
 
-	<ul class="cards list-group"></ul>
+	<ul class="cards list-group sortable connectedSortable"></ul>
 	
 	
 	<!-- Button trigger modal -->
@@ -29,4 +29,8 @@
 	$("div.panel-heading").mouseout( function (event){
 		$("button#delete_list").addClass("hidden");
 	});
+	
+	$('.cards.sortable').sortable({
+		connectWith: '.connectedSortable'
+	}).disableSelection();
 </script>
