@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="list-heading list-display" data-list-id="<%= list.id %>">
   <h4><%= list.escape('title') %></h4>
 </div>
@@ -6,4 +7,41 @@
 </div>
 
 <div class='list-footer'>
+=======
+
+<div class="panel panel-primary pull-left">
+	<div class="panel-heading">
+		<%= list.escape("title") %>
+		<button class="btn btn-primary btn-xs hidden" id="delete_list">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	</div>
+
+	<ul class="cards list-group sortable connectedSortable"></ul>
+	
+	
+	<!-- Button trigger modal -->
+	<button class="btn btn-default btn-sm" id="new_card" data-toggle="modal"
+	data-target="#myModal<%= list.id %>">
+	  New Card
+	</button> 
+
+	<div class="modal fade" id="myModal<%= list.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="new_card"></div>
+>>>>>>> skeleton
 </div>
+
+<script>
+
+	$("div.panel-heading").mouseover( function (event){
+		$("button#delete_list").removeClass("hidden");
+	});
+	
+	$("div.panel-heading").mouseout( function (event){
+		$("button#delete_list").addClass("hidden");
+	});
+	
+	$('.cards.sortable').sortable({
+		connectWith: '.connectedSortable'
+	}).disableSelection();
+</script>

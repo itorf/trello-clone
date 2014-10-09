@@ -1,4 +1,5 @@
 TrelloClone.Collections.Cards = Backbone.Collection.extend({
+<<<<<<< HEAD
   comparator: 'ord',
   model: TrelloClone.Models.Card,
   url: 'api/cards',
@@ -23,3 +24,12 @@ TrelloClone.Collections.Cards = Backbone.Collection.extend({
     return card;
   }
 });
+=======
+	model: TrelloClone.Models.Card,
+	url: 'api/cards',
+	
+	comparator: function (model){
+		return (model.ord);
+	}
+});
+>>>>>>> skeleton

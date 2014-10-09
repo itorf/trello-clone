@@ -22,11 +22,14 @@ module Api
       end
     end
 
+<<<<<<< HEAD
     def show
       @card = Card.find(params[:id])
       render :show
     end
 
+=======
+>>>>>>> skeleton
     private
 
     def current_list
@@ -43,7 +46,11 @@ module Api
     end
 
     def card_params
+<<<<<<< HEAD
       params.require(:card).permit(:title, :list_id, :ord)
+=======
+      params.require(:card).permit(:title, :list_id, :ord, :description)
+>>>>>>> skeleton
     end
   end
 end

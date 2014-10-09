@@ -5,7 +5,13 @@ window.TrelloClone = {
   Routers: {},
   Utils: {},
   initialize: function() {
-    new TrelloClone.Routers.Router
-    Backbone.history.start();
-  }
+
+		TrelloClone.Collections.boards = new TrelloClone.Collections.Boards() 
+		
+		new TrelloClone.Routers.TrelloRouter({
+			"$rootEl": $("div#main")
+		});
+		Backbone.history.start();
+	}
 };
+
